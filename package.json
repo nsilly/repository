@@ -1,0 +1,51 @@
+{
+  "name": "nf-repository",
+  "version": "1.0.0",
+  "description": "NF Repository is a abstract layer of Sequelize Application, that make application more easy to understand and flexible to maintain.",
+  "scripts": {
+    "test": "jest --forceExit",
+    "build": "rimraf dist && ./node_modules/.bin/babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,error_code.md,README.md --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codersvn/repository.git"
+  },
+  "keywords": [
+    "Repository",
+    "Sequelize"
+  ],
+  "author": "Hieupv",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codersvn/repository/issues"
+  },
+  "homepage": "https://github.com/codersvn/repository#readme",
+  "dependencies": {
+    "@codersvn/container": "^1.0.0",
+    "@codersvn/support": "^1.0.0",
+    "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^22.1.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^23.5.0",
+    "rimraf": "^2.6.2"
+  }
+}
