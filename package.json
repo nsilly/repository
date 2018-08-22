@@ -1,6 +1,6 @@
 {
   "name": "@codersvn/repository",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "NF Repository is a abstract layer of Sequelize Application, that make application more easy to understand and flexible to maintain.",
   "scripts": {
     "test": "jest --forceExit",
