@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Exception, NotFoundException } from '@codersvn/exceptions';
-import { LengthAwarePaginator } from '../Utils/LengthAwarePaginator';
-import { QueryBuilder } from '../Utils/QueryBuilder';
+import { LengthAwarePaginator } from './Utils/LengthAwarePaginator';
+import { QueryBuilder } from './Utils/QueryBuilder';
 import { Request } from '@codersvn/support';
 
 export class Repository {
