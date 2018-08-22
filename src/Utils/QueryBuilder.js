@@ -1,6 +1,5 @@
 import * as _ from 'lodash';
-import { Exception } from '../Exceptions/Exception';
-import models from '../../models';
+import { Exception } from '@codersvn/exceptions';
 import { Op } from 'sequelize';
 
 export class QueryBuilder {
@@ -14,6 +13,10 @@ export class QueryBuilder {
     this.group = undefined;
     this.includes = [];
     this.attributes = [];
+  }
+
+  setModels(models) {
+    this.models = models;
   }
 
   /**
@@ -119,7 +122,11 @@ export class QueryBuilder {
    * @return this
    */
   whereHas(relation, builder) {
-    this.includes.push({ model: models[relation], where: builder.buildWhereQuery() });
+    if (this.models !== undefined && this.models[relation] !== undefined) {
+      this.includes.push({ model: this.models[relation], where: builder.buildWhereQuery() });
+    } else {
+      this.includes.push({ model: relation, where: builder.buildWhereQuery() });
+    }
     return this;
   }
 
@@ -132,8 +139,11 @@ export class QueryBuilder {
    * @return this
    */
   includeThroughWhere(relation, builder) {
-    this.includes.push({ model: models[relation], through: { where: builder.buildWhereQuery() } });
-    console.log(this.includes);
+    if (this.models !== undefined && this.models[relation] !== undefined) {
+      this.includes.push({ model: this.models[relation], through: { where: builder.buildWhereQuery() } });
+    } else {
+      this.includes.push({ model: relation, through: { where: builder.buildWhereQuery() } });
+    }
 
     return this;
   }
@@ -206,7 +216,11 @@ export class QueryBuilder {
     }
     let mainModel = args[0];
     if (typeof args[0] === 'string') {
-        mainModel = models[args[0]];
+      if (this.models !== undefined && this.models[args[0]] !== undefined) {
+        mainModel = this.models[args[0]];
+      } else {
+        mainModel = args[0];
+      }
     }
     let include = { model: mainModel };
     const arr = [];
@@ -235,11 +249,15 @@ export class QueryBuilder {
         case 'include':
           let model = item[1];
           if (typeof item[1] === 'string') {
-              model = models[item[1]];
+            if (this.models !== undefined && this.models[item[1]] !== undefined) {
+              model = this.models[item[1]];
+            } else {
+              model = item[1];
+            }
           }
           const includeObj = { model: model };
           if (item[2] === 'as') {
-              Object.assign(includeObj, { as: item[3] });
+            Object.assign(includeObj, { as: item[3] });
           }
           arrayInclude.push(includeObj);
           break;
