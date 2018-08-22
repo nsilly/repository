@@ -22,9 +22,21 @@
   dependencies:
     crypto "^1.0.1"
 
-"@codersvn/support@^1.0.0":
+"@codersvn/container@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@codersvn/container/-/container-1.0.2.tgz#55fbe1f7109c03912a0c3e41d3fa58760bd283e1"
+  dependencies:
+    crypto "^1.0.1"
+
+"@codersvn/exceptions@^1.0.0":
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@codersvn/support/-/support-1.0.0.tgz#4b46a71678d1bd7cc8e8fde504207ddc98516025"
+  resolved "https://registry.yarnpkg.com/@codersvn/exceptions/-/exceptions-1.0.0.tgz#ca2d51196e2ed2a34d68c0218d05fc2b8c6032a4"
+
+"@codersvn/support@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@codersvn/support/-/support-1.0.9.tgz#2c0c21f4e0ada9726baaa458dbe65285b0c9e0fd"
+  dependencies:
+    "@codersvn/container" "^1.0.0"
 
 abab@^2.0.0:
   version "2.0.0"
