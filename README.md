@@ -7,7 +7,6 @@ You want to know a little more about the Repository pattern? [Read this great ar
 ## Table of Contents
 
 - <a href="#installation">Installation</a>
-  - <a href="#npm">NPM</a>
 - <a href="#methods">Methods</a>
 - <a href="#usage">Usage</a>
 
@@ -18,13 +17,13 @@ You want to know a little more about the Repository pattern? [Read this great ar
 Execute the following command to get the latest version of the package:
 
 ```terminal
-npm install nf-repository
+npm install @codersvn/repository
 ```
 
 If Yarn
 
 ```terminal
-yarn add nf-repository
+yarn add @codersvn/repository
 ```
 
 ## Methods
