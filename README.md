@@ -75,8 +75,7 @@ module.exports = (sequelize, DataTypes) => {
 
 ```javascript
 import models from "your_sequelize_model_folder";
-import { Exception } from "nf-repository/Exceptions";
-import { Repository } from "nf-repository/Repository";
+import { Repository } from "@codersvn/repository";
 
 export default class DemoRepository extends Repository {
   Models() {

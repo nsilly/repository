@@ -1,10 +1,11 @@
 {
   "name": "@codersvn/repository",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "NF Repository is a abstract layer of Sequelize Application, that make application more easy to understand and flexible to maintain.",
   "scripts": {
     "test": "jest --forceExit",
-    "build": "rimraf dist && ./node_modules/.bin/babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,error_code.md,README.md --copy-files"
+    "build": "rimraf dist && ./node_modules/.bin/babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,error_code.md,README.md --copy-files",
+    "publish_module": "npm run build && npx @codersvn/npm-auto-version && npm publish --access public && rm -rf dist"
   },
   "main": "dist/index.js",
   "repository": {
