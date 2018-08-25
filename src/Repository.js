@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import { Exception, NotFoundException } from '@codersvn/exceptions';
+import { Exception, NotFoundException } from '@nsilly/exceptions';
 import { LengthAwarePaginator } from './Utils/LengthAwarePaginator';
 import { QueryBuilder } from './Utils/QueryBuilder';
-import { Request } from '@codersvn/support';
+import { Request } from '@nsilly/support';
 
 export class Repository {
   constructor() {

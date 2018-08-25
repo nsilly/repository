@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { Exception } from '@codersvn/exceptions';
+import { Exception } from '@nsilly/exceptions';
 import { Op } from 'sequelize';
 
 export class QueryBuilder {

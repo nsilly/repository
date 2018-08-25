@@ -17,13 +17,13 @@ You want to know a little more about the Repository pattern? [Read this great ar
 Execute the following command to get the latest version of the package:
 
 ```terminal
-npm install @codersvn/repository
+npm install @nsilly/repository
 ```
 
 If Yarn
 
 ```terminal
-yarn add @codersvn/repository
+yarn add @nsilly/repository
 ```
 
 ## Methods
@@ -75,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
 
 ```javascript
 import models from "your_sequelize_model_folder";
-import { Repository } from "@codersvn/repository";
+import { Repository } from "@nsilly/repository";
 
 export default class DemoRepository extends Repository {
   Models() {
