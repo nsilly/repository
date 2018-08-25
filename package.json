@@ -1,6 +1,6 @@
 {
-  "name": "@codersvn/repository",
-  "version": "1.1.0",
+  "name": "@nsilly/repository",
+  "version": "1.1.1",
   "description": "NF Repository is a abstract layer of Sequelize Application, that make application more easy to understand and flexible to maintain.",
   "scripts": {
     "test": "jest --forceExit",
@@ -10,7 +10,7 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codersvn/repository.git"
+    "url": "git+https://github.com/nsilly/repository.git"
   },
   "keywords": [
     "Repository",
@@ -19,13 +19,13 @@
   "author": "Hieupv",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codersvn/repository/issues"
+    "url": "https://github.com/nsilly/repository/issues"
   },
-  "homepage": "https://github.com/codersvn/repository#readme",
+  "homepage": "https://github.com/nsilly/repository#readme",
   "dependencies": {
-    "@codersvn/container": "^1.1",
-    "@codersvn/exceptions": "^1.1",
-    "@codersvn/support": "^1.1",
+    "@nsilly/container": "^1.1",
+    "@nsilly/exceptions": "^1.1",
+    "@nsilly/support": "^1.1",
     "lodash": "^4.17.10",
     "sequelize": "^4.38.0"
   },
