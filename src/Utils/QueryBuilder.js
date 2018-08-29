@@ -37,6 +37,9 @@ export class QueryBuilder {
       [column, value] = [args[0], args[1]];
     } else if (args.length === 3) {
       [column, operation, value] = args;
+    } else if (args.length === 1) {
+      // means raw query
+      [column, operation, value] = [args[0], null, null];
     } else {
       throw new Exception('where function expect two or three parameters', 1000);
     }

@@ -496,10 +496,22 @@ export class Repository {
    */
   where(...args) {
     if (args.length === 1) {
-      const callable = args[0];
-      const builder = new QueryBuilder();
-      const query = callable(builder);
-      this.builder.scopeQuery.apply(this.builder, [query]);
+      let raw = false;
+      if (args[0].constructor) {
+        if (args[0].constructor.name === 'Where') {
+          raw = true;
+        } else if (args[0].constructor.name === 'Literal') {
+          raw = true;
+        }
+      }
+      if (raw) {
+        this.builder.where.apply(this.builder, [...args]);
+      } else {
+        const callable = args[0];
+        const builder = new QueryBuilder();
+        const query = callable(builder);
+        this.builder.scopeQuery.apply(this.builder, [query]);
+      }
     } else {
       this.builder.where.apply(this.builder, [...args]);
     }
