@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Exception, NotFoundException } from '@nsilly/exceptions';
-import { LengthAwarePaginator } from './Utils/LengthAwarePaginator';
 import { QueryBuilder } from './Utils/QueryBuilder';
+import { LengthAwarePaginator } from '@nsilly/response';
 import { Request } from '@nsilly/support';
 
 export class Repository {

@@ -16,20 +16,26 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@nsilly/container@^1.1":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@nsilly/container/-/container-1.1.2.tgz#98802b40362c96309ad6dec66e01372c869e92ff"
+"@nsilly/container@^2.1":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@nsilly/container/-/container-2.1.0.tgz#8ddc0d14a811f38751c1beb42cf04aea71c9590b"
 
-"@nsilly/exceptions@^1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@nsilly/exceptions/-/exceptions-1.1.1.tgz#6055eb1bd8ab534f1f0461b0e656fb6af2e3ee98"
+"@nsilly/exceptions@^2.1", "@nsilly/exceptions@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@nsilly/exceptions/-/exceptions-2.1.0.tgz#67271b7b67c5e5f5cd94028be3f136bc61d1b231"
 
-"@nsilly/support@^1.1":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@nsilly/support/-/support-1.1.5.tgz#3370a079325c7dd97f4f344a6c466e5850bff061"
+"@nsilly/response@^2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@nsilly/response/-/response-2.1.1.tgz#51a1af0fb4b8211b3b73689b81e8e5afb73a2c74"
   dependencies:
-    "@nsilly/container" "^1.1"
-    "@nsilly/exceptions" "^1.1"
+    "@nsilly/exceptions" "^2.1.0"
+
+"@nsilly/support@^2.1":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@nsilly/support/-/support-2.1.0.tgz#83318ade68e6b167a16a5d6a56566a15b5c5c124"
+  dependencies:
+    "@nsilly/container" "^2.1"
+    "@nsilly/exceptions" "^2.1"
 
 "@types/geojson@^1.0.0":
   version "1.0.6"
