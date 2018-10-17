@@ -1,6 +1,6 @@
 {
   "name": "@nsilly/repository",
-  "version": "2.1.1",
+  "version": "2.1.5",
   "description": "NF Repository is a abstract layer of Sequelize Application, that make application more easy to understand and flexible to maintain.",
   "scripts": {
     "test": "jest --forceExit",
@@ -24,11 +24,11 @@
   },
   "homepage": "https://github.com/nsilly/repository#readme",
   "dependencies": {
-    "@nsilly/container": "^2.1",
-    "@nsilly/exceptions": "^2.1",
-    "@nsilly/response": "^2.1.1",
-    "@nsilly/support": "^2.1",
-    "lodash": "^4.17.10",
+    "@nsilly/container": "*",
+    "@nsilly/exceptions": "*",
+    "@nsilly/response": "*",
+    "@nsilly/support": "*",
+    "lodash": "*",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {

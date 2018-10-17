@@ -356,14 +356,22 @@ export class QueryBuilder {
         query[Op.or].push({ [Op.and]: andQuery });
       }
       _.forEach(group[Op.or], item => {
-        query[Op.or].push({ [item.column]: { [this.resolveOperation(item.operation)]: item.value } });
+        if (item.operation === null && item.value == null) {
+          query[Op.or].push(item.column);
+        } else {
+          query[Op.or].push({ [item.column]: { [this.resolveOperation(item.operation)]: item.value } });
+        }
       });
     } else {
       query = {
         [Op.and]: []
       };
       _.forEach(group[Op.and], item => {
-        query[Op.and].push({ [item.column]: { [this.resolveOperation(item.operation)]: item.value } });
+        if (item.operation === null && item.value == null) {
+          query[Op.and].push(item.column);
+        } else {
+          query[Op.and].push({ [item.column]: { [this.resolveOperation(item.operation)]: item.value } });
+        }
       });
     }
     if (_.isArray(this.scopeQueries) && this.scopeQueries.length > 0) {

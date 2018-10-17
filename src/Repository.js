@@ -7,6 +7,7 @@ import { Request } from '@nsilly/support';
 export class Repository {
   constructor() {
     this.builder = new QueryBuilder();
+    this.paranoid = true;
   }
 
   /**
@@ -322,7 +323,8 @@ export class Repository {
       where: {
         id: id
       },
-      include: this.getIncludes()
+      include: this.getIncludes(),
+      paranoid: this.paranoid
     };
     if (!_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
@@ -391,7 +393,8 @@ export class Repository {
       where: this.getWheres(),
       include: this.getIncludes(),
       order: this.getOrders(),
-      group: this.getGroup()
+      group: this.getGroup(),
+      paranoid: this.paranoid
     };
 
     if (!_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
@@ -458,7 +461,8 @@ export class Repository {
       where: this.getWheres(),
       include: this.getIncludes(),
       order: this.getOrders(),
-      distinct: true
+      distinct: true,
+      paranoid: this.paranoid
     };
 
     if (!_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
@@ -736,6 +740,16 @@ export class Repository {
    */
   with(...args) {
     this.builder.with.apply(this.builder, args);
+    return this;
+  }
+
+  /**
+   * Include deleted records
+   *
+   * @return this
+   */
+  withTrashed() {
+    this.paranoid = false;
     return this;
   }
   /**

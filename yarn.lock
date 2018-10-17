@@ -16,21 +16,21 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@nsilly/container@^2.1":
+"@nsilly/container@*", "@nsilly/container@^2.1":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@nsilly/container/-/container-2.1.0.tgz#8ddc0d14a811f38751c1beb42cf04aea71c9590b"
 
-"@nsilly/exceptions@^2.1", "@nsilly/exceptions@^2.1.0":
+"@nsilly/exceptions@*", "@nsilly/exceptions@^2.1", "@nsilly/exceptions@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@nsilly/exceptions/-/exceptions-2.1.0.tgz#67271b7b67c5e5f5cd94028be3f136bc61d1b231"
 
-"@nsilly/response@^2.1.1":
+"@nsilly/response@*":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@nsilly/response/-/response-2.1.1.tgz#51a1af0fb4b8211b3b73689b81e8e5afb73a2c74"
   dependencies:
     "@nsilly/exceptions" "^2.1.0"
 
-"@nsilly/support@^2.1":
+"@nsilly/support@*":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@nsilly/support/-/support-2.1.0.tgz#83318ade68e6b167a16a5d6a56566a15b5c5c124"
   dependencies:
@@ -2775,6 +2775,10 @@ locate-path@^2.0.0:
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
+
+lodash@*:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 lodash@^4.13.1, lodash@^4.17.1, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.3.0:
   version "4.17.10"
