@@ -124,12 +124,15 @@ export class QueryBuilder {
    *
    * @return this
    */
-  whereHas(relation, builder) {
+  whereHas(relation, builder, options) {
+    options = options || {};
+    let model;
     if (this.models !== undefined && this.models[relation] !== undefined) {
-      this.includes.push({ model: this.models[relation], where: builder.buildWhereQuery() });
+      model = this.models[relation];
     } else {
-      this.includes.push({ model: relation, where: builder.buildWhereQuery() });
+      model = relation;
     }
+    this.includes.push(Object.assign({ model: model, where: builder.buildWhereQuery() }, options));
     return this;
   }
 

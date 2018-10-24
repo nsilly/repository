@@ -570,10 +570,10 @@ export class Repository {
    *
    * @return this
    */
-  whereHas(relation, callable) {
+  whereHas(relation, callable, options) {
     let builder = new QueryBuilder();
     builder = callable(builder);
-    this.builder.whereHas.apply(this.builder, [relation, builder]);
+    this.builder.whereHas.apply(this.builder, [relation, builder, options]);
     return this;
   }
 
