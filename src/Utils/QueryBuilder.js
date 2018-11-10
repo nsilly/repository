@@ -79,8 +79,10 @@ export class QueryBuilder {
       [column, value] = [args[0], args[1]];
     } else if (args.length === 3) {
       [column, operation, value] = args;
+    } else if (args.length === 1) {
+      [column, operation, value] = [args[0], null, null];
     } else {
-      throw new Exception('orWhere function expect two or three parameters', 1000);
+      throw new Exception('orWhere function expect one, two or three parameters', 1000);
     }
     this.wheres.push({ column, operation, value, type });
     return this;
