@@ -1,6 +1,6 @@
 {
   "name": "@nsilly/repository",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "description": "NF Repository is a abstract layer of Sequelize Application, that make application more easy to understand and flexible to maintain.",
   "scripts": {
     "test": "jest --forceExit",

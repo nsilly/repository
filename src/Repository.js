@@ -636,6 +636,10 @@ export class Repository {
       [model, field, direction] = args;
       this.builder.orderBy(model, field, direction);
     }
+    if (args.length === 1) {
+      [field] = args;
+      this.builder.orderBy(field);
+    }
     return this;
   }
 

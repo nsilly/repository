@@ -198,6 +198,10 @@ export class QueryBuilder {
       [model, field, direction] = args;
       this.orders.push([model, field, direction]);
     }
+    if (args.length === 1) {
+      [field] = args;
+      this.orders.push(field);
+    }
   }
 
   /**
