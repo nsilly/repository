@@ -286,7 +286,7 @@ export class Repository {
       order: this.getOrders()
     };
 
-    if (!_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
+    if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
     }
     let model = this.Models();
@@ -326,7 +326,7 @@ export class Repository {
       include: this.getIncludes(),
       paranoid: this.paranoid
     };
-    if (!_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
+    if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
     }
     let model = this.Models();
@@ -397,7 +397,7 @@ export class Repository {
       paranoid: this.paranoid
     };
 
-    if (!_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
+    if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
     }
     let model = this.Models();
@@ -465,7 +465,7 @@ export class Repository {
       paranoid: this.paranoid
     };
 
-    if (!_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
+    if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
     }
     let model = this.Models();
