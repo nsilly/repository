@@ -104,6 +104,21 @@ export class QueryBuilder {
   }
 
   /**
+   * Add an "OR WHERE IN" clause to the query.
+   *
+   * @param  string  column
+   * @param  array   value
+   *
+   * @return this
+   */
+  orWhereIn(column, value) {
+    const operation = Op.in;
+    const type = Op.or;
+    this.wheres.push({ column, operation, value, type });
+    return this;
+  }
+
+  /**
    * Add an "WHERE NOT IN" clause to the query.
    *
    * @param  string  column

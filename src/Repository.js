@@ -550,6 +550,19 @@ export class Repository {
   }
 
   /**
+   * Add an "OR WHERE IN" clause to the query.
+   *
+   * @param  string  column
+   * @param  array   value
+   *
+   * @return this
+   */
+  orWhereIn(column, value) {
+    this.builder.orWhereIn(column, value);
+    return this;
+  }
+
+  /**
    * Add an "WHERE NOT IN" clause to the query.
    *
    * @param  string  column
