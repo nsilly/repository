@@ -8,6 +8,22 @@ export class Repository {
   constructor() {
     this.builder = new QueryBuilder();
     this.paranoid = true;
+    this.raw = false;
+  }
+
+  /**
+   * Set Raw option
+   *
+   * @param Boolean
+   *
+   * @return this
+   */
+  setRaw(raw) {
+    if (!_.isBoolean(raw)) {
+      throw new Exception('Raw option can be boolean only');
+    }
+    this.raw = raw;
+    return this;
   }
 
   /**
@@ -283,7 +299,8 @@ export class Repository {
     let params = {
       where: this.getWheres(),
       include: this.getIncludes(),
-      order: this.getOrders()
+      order: this.getOrders(),
+      raw: this.raw
     };
 
     if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
@@ -394,7 +411,8 @@ export class Repository {
       include: this.getIncludes(),
       order: this.getOrders(),
       group: this.getGroup(),
-      paranoid: this.paranoid
+      paranoid: this.paranoid,
+      raw: this.raw
     };
 
     if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
@@ -462,7 +480,8 @@ export class Repository {
       include: this.getIncludes(),
       order: this.getOrders(),
       distinct: true,
-      paranoid: this.paranoid
+      paranoid: this.paranoid,
+      raw: this.raw
     };
 
     if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
