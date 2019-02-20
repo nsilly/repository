@@ -8,7 +8,7 @@ export class Repository {
   constructor() {
     this.builder = new QueryBuilder();
     this.paranoid = true;
-    this.raw = false;
+    this.raw = null;
   }
 
   /**
@@ -299,9 +299,11 @@ export class Repository {
     let params = {
       where: this.getWheres(),
       include: this.getIncludes(),
-      order: this.getOrders(),
-      raw: this.raw
+      order: this.getOrders()
     };
+    if (_.isBoolean(this.raw)) {
+      params = { ...params, ...{ raw: this.raw } };
+    }
 
     if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
@@ -411,9 +413,11 @@ export class Repository {
       include: this.getIncludes(),
       order: this.getOrders(),
       group: this.getGroup(),
-      paranoid: this.paranoid,
-      raw: this.raw
+      paranoid: this.paranoid
     };
+    if (_.isBoolean(this.raw)) {
+      params = { ...params, ...{ raw: this.raw } };
+    }
 
     if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
@@ -480,9 +484,11 @@ export class Repository {
       include: this.getIncludes(),
       order: this.getOrders(),
       distinct: true,
-      paranoid: this.paranoid,
-      raw: this.raw
+      paranoid: this.paranoid
     };
+    if (_.isBoolean(this.raw)) {
+      params = { ...params, ...{ raw: this.raw } };
+    }
 
     if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
