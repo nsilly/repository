@@ -413,8 +413,21 @@ export class Repository {
       include: this.getIncludes(),
       order: this.getOrders(),
       group: this.getGroup(),
-      paranoid: this.paranoid
+      paranoid: this.paranoid,
+      limit: this.getLimit(),
+      offset: this.getOffset(),
+      raw: this.raw
     };
+    const limit = this.getLimit();
+    if (!_.isUndefined(limit)) {
+      params = _.assign(params, { limit });
+    }
+
+    const offset = this.getOffset();
+    if (!_.isUndefined(offset)) {
+      params = _.assign(params, { offset });
+    }
+
     if (_.isBoolean(this.raw)) {
       params = { ...params, ...{ raw: this.raw } };
     }
@@ -484,8 +497,16 @@ export class Repository {
       include: this.getIncludes(),
       order: this.getOrders(),
       distinct: true,
-      paranoid: this.paranoid
+      paranoid: this.paranoid,
+      limit: this.getLimit(),
+      raw: this.raw
     };
+
+    const limit = this.getLimit();
+    if (!_.isUndefined(limit)) {
+      params = _.assign(params, { limit });
+    }
+
     if (_.isBoolean(this.raw)) {
       params = { ...params, ...{ raw: this.raw } };
     }
