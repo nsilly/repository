@@ -14,7 +14,7 @@ export class Repository {
   /**
    * Set Raw option
    *
-   * @param Boolean
+   * @param {Boolean} raw Allow get raw data from database
    *
    * @return this
    */
@@ -29,8 +29,8 @@ export class Repository {
   /**
    * Create or update a record matching the attributes, and fill it with values
    *
-   * @param Object attributes
-   * @param Object values
+   * @param {Object} attributes params to find resource
+   * @param {Object} values params to update or create new resource
    *
    * @return Object
    */
@@ -56,7 +56,7 @@ export class Repository {
   /**
    * Save a new model and return the instance.
    *
-   * @param Object attributes
+   * @param {Object} attributes create new resource with given params
    *
    * @return Object
    */
@@ -93,9 +93,9 @@ export class Repository {
     return result;
   }
   /**
-   * Save a new model or create new instance of not exist.
+   * Find the first resource that match with given params or create new one if not exist
    *
-   * @param Object attributes
+   * @param {Object} attributes find or create new resource with given params
    *
    * @return Object
    */
@@ -138,8 +138,8 @@ export class Repository {
   /**
    * Update multiple instances that match the where options
    *
-   * @param Object attributes
-   * @param ID optinal
+   * @param {Object} attributes values to update resource
+   * @param {Integer} id Update resource with given ID
    *
    * @return Object
    */
@@ -332,7 +332,7 @@ export class Repository {
   /**
    * Find a model by its primary key.
    *
-   * @param int id
+   * @param {Integer} ID find resource with given ID
    *
    * @return Boolean
    * @throws Exception
@@ -362,7 +362,7 @@ export class Repository {
   /**
    * Delete a model by its primary key.
    *
-   * @param int id
+   * @param {Integer} id delete resource with given ID
    *
    * @return Boolean
    * @throws Exception
@@ -465,8 +465,8 @@ export class Repository {
   /**
    * Paginate the given query.
    *
-   * @param  int  per_page
-   * @param  int|null  page
+   * @param  {Integer}  per_page number item per page
+   * @param  {Integer|null}  page page number
    *
    * @return LengthAwarePaginator
    */
@@ -530,9 +530,9 @@ export class Repository {
   /**
    * Add a basic "WHERE" clause to the query.
    *
-   * @param  string  column
-   * @param  mixed   operator
-   * @param  mixed   value
+   * @param  {String}  column Column name
+   * @param  {mixed}   operator Operator or Value
+   * @param  {mixed}   value Value
    *
    * @return this
    */
@@ -563,9 +563,9 @@ export class Repository {
   /**
    * Add an "OR WHERE" clause to the query.
    *
-   * @param  string  column
-   * @param  string|null  operator
-   * @param  mixed   value
+   * @param  {String}  column Column name
+   * @param  {String|null}  operator Operator or Value
+   * @param  {mixed}   value Value
    *
    * @return this
    */
@@ -577,8 +577,8 @@ export class Repository {
   /**
    * Add an "WHERE IN" clause to the query.
    *
-   * @param  string  column
-   * @param  array   value
+   * @param  {String}  column Column name
+   * @param  {Array}   value Array of values
    *
    * @return this
    */
@@ -590,8 +590,8 @@ export class Repository {
   /**
    * Add an "OR WHERE IN" clause to the query.
    *
-   * @param  string  column
-   * @param  array   value
+   * @param  {String}  column Column name
+   * @param  {Array}   value Array of values
    *
    * @return this
    */
@@ -603,7 +603,7 @@ export class Repository {
   /**
    * Add an "WHERE NOT IN" clause to the query.
    *
-   * @param  string  column
+   * @param  {String}  column Column name
    * @param  array   value
    *
    * @return this
@@ -616,8 +616,8 @@ export class Repository {
   /**
    * Add a basic where clause with relation to the query.
    *
-   * @param  string  relation
-   * @param  callable callable
+   * @param  {String}  relation Relation
+   * @param  {Callable} callable Callback
    *
    * @return this
    */
@@ -631,8 +631,8 @@ export class Repository {
   /**
    * include another table that has many to many relationship with it
    *
-   * @param  string  relation
-   * @param  callable callable
+   * @param  {String}  relation Relation
+   * @param  {Callable} callable Callback
    *
    * @return this
    */
@@ -646,9 +646,9 @@ export class Repository {
   /**
    * Alias to set the "offset" value of the query.
    *
-   * @param  int  value
+   * @param  {Integer}  value Number of record to skip
    *
-   * @return this
+   * @return self
    */
   skip(offset) {
     this.builder.skip(offset);
@@ -658,7 +658,7 @@ export class Repository {
   /**
    * Alias to set the "limit" value of the query.
    *
-   * @param  int  value
+   * @param  {Integer}  value Number of record to take
    *
    * @return this
    */
@@ -670,8 +670,8 @@ export class Repository {
   /**
    * Add an "order by" clause to the query.
    *
-   * @param  string  column
-   * @param  string  direction
+   * @param  {String}  column Column name to order
+   * @param  {String}  direction [ASC|DESC]
    *
    * @return this
    */
@@ -697,9 +697,9 @@ export class Repository {
   /**
    * Add an "GROUP BY" clause to the query.
    *
-   * @param  string  column
+   * @param  {String}  column Column to group
    *
-   * @return this
+   * @return self
    */
   groupBy(column) {
     this.builder.groupBy(column);
@@ -709,7 +709,7 @@ export class Repository {
   /**
    * Extract order param from request and apply the rule
    *
-   * @param Array Supported fields to order
+   * @param {Array} fields Supported fields to order
    *
    * @return Repository
    */
@@ -741,7 +741,7 @@ export class Repository {
   /**
    * Extract search param from request and apply the rule
    *
-   * @param Array Supported fields to order
+   * @param {Array} fields Supported fields to search
    *
    * @return Repository
    */
@@ -762,8 +762,10 @@ export class Repository {
 
   /**
    * Extract constraints param from request and apply the rule
-   * @param custom => object consisting key of entity type with custom implementation as the value
    * when supplied custom, it will check from the custom object for its implementation function instead of default where
+   *
+   * @param {Object} custom object consisting key of entity type with custom implementation as the value
+   *
    * @return Repository
    */
   applyConstraintsFromRequest(custom = {}) {
@@ -789,7 +791,7 @@ export class Repository {
   /**
    * Begin querying a model with eager loading.
    *
-   * @param  array|string  $relations
+   * @param  {Array|String} relation Relation name
    *
    * @return this
    */
@@ -810,7 +812,7 @@ export class Repository {
   /**
    * Add scope to the query
    *
-   * @param  string scope
+   * @param  {String} scope Scope to include
    *
    * @return this
    */
@@ -821,7 +823,7 @@ export class Repository {
   /**
    * Set the columns to be selected.
    *
-   * @param  array|mixed  $columns
+   * @param  {Array|mixed}  columns Columns to select
    *
    * @return this
    */
