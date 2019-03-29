@@ -8,7 +8,7 @@ export class QueryBuilder {
     this.scopeQueries = [];
     this.scopes = [];
     this.offset = 0;
-    this.limit = 10;
+    this.limit = undefined;
     this.orders = [];
     this.group = undefined;
     this.includes = [];

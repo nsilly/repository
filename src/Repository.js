@@ -419,6 +419,11 @@ export class Repository {
       params = { ...params, ...{ raw: this.raw } };
     }
 
+    const limit = this.getLimit();
+    if (!_.isUndefined(limit)) {
+      params = { ...params, ...{ limit } };
+    }
+
     if (_.isArray(this.getAttributes()) && this.getAttributes().length > 0) {
       params = _.assign(params, { attributes: this.getAttributes() });
     }
