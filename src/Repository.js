@@ -415,8 +415,7 @@ export class Repository {
       group: this.getGroup(),
       paranoid: this.paranoid,
       limit: this.getLimit(),
-      offset: this.getOffset(),
-      raw: this.raw
+      offset: this.getOffset()
     };
     const limit = this.getLimit();
     if (!_.isUndefined(limit)) {
@@ -497,9 +496,7 @@ export class Repository {
       include: this.getIncludes(),
       order: this.getOrders(),
       distinct: true,
-      paranoid: this.paranoid,
-      limit: this.getLimit(),
-      raw: this.raw
+      paranoid: this.paranoid
     };
 
     if (_.isBoolean(this.raw)) {
