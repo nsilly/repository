@@ -355,6 +355,9 @@ export class QueryBuilder {
       case 'like':
       case 'LIKE':
         return Op.like;
+      case 'notLike':
+      case 'NOTLIKE':
+        return Op.notLike;
       default:
         return operation;
     }
