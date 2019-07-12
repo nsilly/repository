@@ -238,10 +238,8 @@ export class QueryBuilder {
    * @return this
    */
   with(...args) {
-    if (_.isArray(args[0])) {
-      args = args[0];
-    }
     let mainModel = args[0];
+    const options = args[1] || {};
     if (typeof args[0] === 'string') {
       if (this.models !== undefined && this.models[args[0]] !== undefined) {
         mainModel = this.models[args[0]];
@@ -249,68 +247,21 @@ export class QueryBuilder {
         mainModel = args[0];
       }
     }
-    let include = { model: mainModel };
-    const arr = [];
-    let arrayInclude = [];
-    const obj = {};
 
-    for (let i = 1; i < args.length; i++) {
-      if (args[i]) {
-        arr.push(args[i].split(':'));
-      }
+    if (options.include !== undefined && typeof options.include === 'string' && this.models !== undefined && this.models[options.include] !== undefined) {
+      options.include = this.models[options.include];
     }
 
-    _.forEach(arr, item => {
-      switch (item[0]) {
-        case 'as':
-          obj[item[0]] = item[1];
-          Object.assign(include, obj);
-          break;
-        case 'attributes':
-          obj[item[0]] = [];
-          for (let j = 1; j < item.length; j++) {
-            obj[item[0]].push(item[j]);
-          }
-          Object.assign(include, obj);
-          break;
-        case 'include':
-          let model = item[1];
-          if (typeof item[1] === 'string') {
-            if (this.models !== undefined && this.models[item[1]] !== undefined) {
-              model = this.models[item[1]];
-            } else {
-              model = item[1];
-            }
-          }
-          const includeObj = { model: model };
-          if (item[2] === 'as') {
-            Object.assign(includeObj, { as: item[3] });
-          }
-          arrayInclude.push(includeObj);
-          break;
-        default:
-          break;
-      }
-    });
+    const include = { ...options, ...{ model: mainModel } };
 
-    arrayInclude = _.reverse(arrayInclude);
-    for (let i = 0; i < arrayInclude.length - 1; i++) {
-      Object.assign(arrayInclude[i + 1], { include: arrayInclude[i] });
-    }
-
-    if (!_.isNil(arrayInclude[arrayInclude.length - 1])) {
-      Object.assign(include, { include: arrayInclude[arrayInclude.length - 1] });
-    }
-
-    _.forEach(this.includes, value => {
-      if (value['model'] === include['model'] && include['include']) {
-        Object.assign(value, include);
-        include = {};
-      }
-    });
-
-    if (!_.isEmpty(include)) {
+    if (_.isUndefined(_.find(this.includes, { model: mainModel }))) {
       this.includes.push(include);
+    } else {
+      _.forEach(this.includes, value => {
+        if (value['model'] === include['model'] && include['include']) {
+          Object.assign(value, include);
+        }
+      });
     }
   }
 
