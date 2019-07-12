@@ -254,15 +254,7 @@ export class QueryBuilder {
 
     const include = { ...options, ...{ model: mainModel } };
 
-    if (_.isUndefined(_.find(this.includes, { model: mainModel }))) {
-      this.includes.push(include);
-    } else {
-      _.forEach(this.includes, value => {
-        if (value['model'] === include['model'] && include['include']) {
-          Object.assign(value, include);
-        }
-      });
-    }
+    this.includes.push(include);
   }
 
   /**
